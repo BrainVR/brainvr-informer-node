@@ -7,7 +7,9 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next){
-  console.log(req.body.key);
+  console.log(req.body);
+  io.emit('unityEvent', req.body);
+  res.send({});
   res.end('received');
 });
 
