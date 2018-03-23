@@ -3,14 +3,19 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'BrainVR Informer' });
 });
 
 router.post('/', function(req, res, next){
   console.log(req.body);
-  io.emit('unityEvent', req.body);
+  var type = Object.keys(req.body)[0];
+  if (type == 'event'){
+    io.emit('unityEvent', req.body[[type]]);
+  }
+  if(type == 'player'){
+    io.emit('unityPlayer', req.body[[type]]);
+  }
   res.send({});
-  res.end('received');
 });
 
 module.exports = router;
