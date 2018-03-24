@@ -9,4 +9,11 @@ displayData = function(data){
   if(data.type == 'event'){
     document.getElementById('event').innerHTML = String(data.event);
   }
+  if(data.type == 'player'){
+    displayPlayerData(data);
+  }
+}
+
+displayPlayerData = function(data){
+  
 }
