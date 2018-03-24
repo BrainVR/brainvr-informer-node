@@ -6,9 +6,14 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'BrainVR Informer' });
 });
 
+router.get('/participant/:id', function(req, res, next){
+  res.render('participant', {participantCode: req.params.id});
+});
+
 router.post('/', function(req, res, next){
   console.log(req.body);
   var type = Object.keys(req.body)[0];
+
   if (type == 'event'){
     io.emit('unityEvent', req.body[[type]]);
   }
