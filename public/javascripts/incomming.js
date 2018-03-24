@@ -1,6 +1,12 @@
 var socket = io();
-console.log(participantCode);
 socket.on(participantCode, function (data) {
   console.log(data);
-  document.getElementById('event').innerHTML = String(data);
+  displayData(data);
+  //;
 });
+
+displayData = function(data){
+  if(data.type == 'event'){
+    document.getElementById('event').innerHTML = String(data.event);
+  }
+}
