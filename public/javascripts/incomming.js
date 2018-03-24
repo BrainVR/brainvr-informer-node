@@ -1,10 +1,18 @@
 var socket = io();
-
-socket.on('unityEvent', function (data) {
-  console.log(data);
-  document.getElementById('event').innerHTML = String(data);
+socket.on(participantCode, function (data) {
+  displayData(data);
+  //;
 });
 
-socket.on('unityPlayer', function(data){
-  document.getElementById('position').innerHTML = String(data);
-});
+displayData = function(data){
+  if(data.type == 'event'){
+    document.getElementById('event').innerHTML = String(data.event);
+  }
+  if(data.type == 'player'){
+    displayPlayerData(data);
+  }
+}
+
+displayPlayerData = function(data){
+  playerUpdate(data);
+}

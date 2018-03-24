@@ -1,0 +1,19 @@
+extends layout
+
+block scripts
+  script.
+    participantCode = "#{participantCode}";
+  script(src="/javascripts/p5.min.js")
+  script(src="/javascripts/p5-drawing.js")
+  script(src="/socket.io/socket.io.js")
+  script(src='/javascripts/incomming.js')
+
+block content
+  h1= participantCode
+  p Listening to events for #{participantCode}
+
+  h2 Last Event
+  #event
+
+  h2 Player position
+  #playerdata

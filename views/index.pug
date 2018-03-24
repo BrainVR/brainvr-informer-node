@@ -1,15 +1,5 @@
 extends layout
 
-block scripts
-  script(src="/socket.io/socket.io.js")
-  script(src='javascripts/incomming.js')
-
 block content
   h1= title
   p Welcome to #{title}
-
-  h2 Last Event
-  #event
-
-  h2 Player position
-  #position
