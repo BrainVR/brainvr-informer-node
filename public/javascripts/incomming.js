@@ -1,6 +1,5 @@
 var socket = io();
 socket.on(participantCode, function (data) {
-  console.log(data);
   displayData(data);
   //;
 });
@@ -15,5 +14,5 @@ displayData = function(data){
 }
 
 displayPlayerData = function(data){
-  
+  playerUpdate(data);
 }
