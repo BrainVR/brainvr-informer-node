@@ -22,6 +22,8 @@ function playerUpdate(data) {
 }
 
 function drawLeftBuffer(data) {
+    var position = HELPERS.vector3toArr(data.Position);
+    POSITION.draw(leftBuffer, position[0], position[2]);
 }
 
 function drawRightBuffer(data) {
