@@ -21,5 +21,10 @@ displayPlayerData = function(data){
 }
 
 handleMapData = function(data){
-
+  //needs a switc, but at this point we are only sending size
+  var mapSize = data.size;
+  mapSize = mapSize.substring(1, mapSize.length - 1).split(",");
+  console.log(mapSize);
+  //passing first and last element - middle is height
+  POSITION.setRealMapSize(parseInt(mapSize[0]), parseInt(mapSize[2]));
 }
