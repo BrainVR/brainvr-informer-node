@@ -7,7 +7,11 @@ function setup() {
     canvas.parent('playerdata');
     // Create both of your off-screen graphics buffers
     leftBuffer = createGraphics(400, 400);
+    POSITION.setBufferSize(400,400);
+    POSITION.setup(leftBuffer);
     rightBuffer = createGraphics(400, 400);
+    ROTATION.setBufferSize(400,400);
+    ROTATION.diameter = 200;
     angleMode(DEGREES);
     noLoop();
 }
