@@ -11,8 +11,15 @@ displayData = function(data){
   if(data.type == 'player'){
     displayPlayerData(data);
   }
+  if(data.type == 'map'){
+    handleMapData(data);
+  }
 }
 
 displayPlayerData = function(data){
   playerUpdate(data);
+}
+
+handleMapData = function(data){
+
 }

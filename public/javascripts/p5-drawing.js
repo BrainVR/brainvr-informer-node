@@ -28,16 +28,3 @@ function drawRightBuffer(data) {
     ROTATION.draw(rightBuffer, data['Rotation.x']);
 }
 
-var ROTATION = {
-    diameter: 100,
-    center: 100,
-
-    draw: function(buffer, x, y){
-        buffer.background(255);
-        buffer.stroke(1);
-        console.log(x, cos(x), sin(x));
-        let playerRotation = x - 90;
-        buffer.ellipse(100, 100, this.diameter, this.diameter);
-        buffer.line(this.center, this.center, cos(playerRotation)*this.diameter/2 + this.center, sin(playerRotation)*this.diameter/2 + this.center);
-    }
-}
