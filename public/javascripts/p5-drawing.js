@@ -1,15 +1,17 @@
 var leftBuffer;
 var rightBuffer;
 
-ROTATION_DIAMETER = 100;
-CIRCLE_CENTER = 100;
 function setup() {
     // 800 x 400 (double width to make room for each "sub-canvas")
     var canvas = createCanvas(800, 400);
     canvas.parent('playerdata');
     // Create both of your off-screen graphics buffers
     leftBuffer = createGraphics(400, 400);
+    POSITION.setBufferSize(400,400);
+    POSITION.setup(leftBuffer);
     rightBuffer = createGraphics(400, 400);
+    ROTATION.setBufferSize(400,400);
+    ROTATION.diameter = 200;
     angleMode(DEGREES);
     noLoop();
 }
@@ -24,13 +26,11 @@ function playerUpdate(data) {
 }
 
 function drawLeftBuffer(data) {
+    var position = HELPERS.vector3toArr(data.Position);
+    POSITION.draw(leftBuffer, position[0], position[2]);
 }
 
 function drawRightBuffer(data) {
-    rightBuffer.background(255);
-    rightBuffer.stroke(1);
-    console.log(data['Rotation.x'], cos(data['Rotation.x']), sin(data['Rotation.x']));
-    let playerRotation = data['Rotation.x'] - 90;
-    rightBuffer.ellipse(100, 100, ROTATION_DIAMETER, ROTATION_DIAMETER);
-    rightBuffer.line(CIRCLE_CENTER, CIRCLE_CENTER, cos(playerRotation)*ROTATION_DIAMETER/2 + CIRCLE_CENTER, sin(playerRotation)*ROTATION_DIAMETER/2 + CIRCLE_CENTER);
+    ROTATION.draw(rightBuffer, data['Rotation.x']);
 }
+
