@@ -6,7 +6,7 @@ socket.on(participantCode, function (data) {
 
 displayData = function(data){
   if(data.type == 'event'){
-    document.getElementById('event').innerHTML = String(data.event);
+    document.getElementById('event').innerHTML = String(data.name);
   }
   if(data.type == 'player'){
     displayPlayerData(data);
